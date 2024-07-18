@@ -1,0 +1,429 @@
+# Presentación
+
+print("Hola, usuario. Bienvenido. Ayúdame a vestir a Valentina\n")
+
+# Listas de la cara
+nariz = ["recta", "aguilena", "griega", "nubia"]
+labios = ["finos", "pequeños", "carnosos", "forma de corazon"]
+ojos = ["almendrados", "redondos", "rasgados", "hundidos", "saltones", "separados", "juntos", "cacuchon doble"]
+color_de_ojos = ["marron", "avellana", "verde", "azul", "gris", "ambar"]
+estructura_facial = ["ovalada", "redonda", "cuadrada", "triangular", "rectangular", "diamante", "corazon"]
+
+# Lista del pelo
+pelo = ["corto", "ondulado", "largo", "liso", "crespo"]
+color_pelo = ["marron oscuro", "marron claro", "rubio platinado", "rubio claro", "rojo oscuro", "rojo medio"]
+diadema = ["tiaras", "pinzas", "clips", "horquillas", "bandas deportivas"]
+sombrero = ["gorra", "sombrero de paja"]
+
+# Listas de la parte inferior
+piel = ["blanca", "morena", "trigueña", "morena clara"]
+caderas = ["estrechas", "anchas", "atleticas"]
+piernas = ["arqueadas", "musculosas", "delgadas", "rectas", "cortas", "largas"]
+pies = ["egipcio", "romano", "grande", "pequeño"]
+empeine = ["ancho", "delgado"]
+
+# Listas de la parte superior
+cuello = ["largo", "corto"]
+hombros = ["anchos", "cortos"]
+busto = ["grande", "pequeño", "mediano"]
+abdomen = ["plano", "abultado", "definido"]
+cintura = ["definida", "estrecha", "ancha", "recta"]
+
+# Listas de las manos
+dedos = ["largos y finos", "cortos y robustos", "dedos curvos"]
+unas = ["pintiagudas", "ovaldas", "cuadradas", "redondas"]
+color_unas = ["rojo", "rosa", "nude", "azul", "blanco", "gris", "sin esmalte"]
+
+# Listas de ropa parte superior
+tipo_cuello_ropa = ["tortuga", "redondo", "en v"]
+tipo_manga_ropa = ["corta", "larga", "hombros descubiertos", "sin mangas"]
+chalecos = ["punto", "acolchados", "piel sintetica"]
+tipo_botones = ["presion", "cosidos", "cierre"]
+
+# Listas de ropa parte inferior
+tipo_corte_basta = ["ajustados", "rectos", "acampanados", "anchos"]
+cintura_ropa = ["baja", "alta"]
+falda = ["lapiz", "plisadas", "acampanadas"]
+short = ["vaqueros", "tela", "mezclilla"]
+leggings = ["basicos", "estampados", "cuero sintetico", "presion"]
+dep_corto = ["compresion", "tela", "running"]
+
+# Diccionario para almacenar las elecciones
+elecciones = {}
+
+while True:
+    d = input(
+        "¿Qué vas a elegir? (cabeza, anatomía, vestimenta) o 'salir' para terminar: ").strip().lower()  # Pregunta al usuario con qué vamos a empezar
+
+    if d == "salir":
+        print("Gracias por ayudarme con Valentina. Esto escogiste para Valentina:",
+              elecciones)  # se despide del usuario
+        break  # Salir si el usuario quiere terminar
+
+    # Empieza la primera etapa de la variable d
+
+    if d == "cabeza":
+        a = input("¿Qué vas a elegir? (cara o pelo): ").strip().lower()  # Pregunta al usuario que vamos a elegir
+        if a == "cara":
+            while True:
+                a = input("¿Qué vas a elegir? (nariz, labios, estructura facial, ojos): ").strip().lower()
+
+                if a == "nariz":
+                    print("Tipos de nariz:", nariz)
+                    tipo_nariz = input("¿Qué tipo de nariz quieres elegir? ").strip().lower()
+                    if tipo_nariz in nariz:
+                        elecciones['nariz'] = tipo_nariz
+                    else:
+                        print("Tipo de nariz no válido.")
+
+                elif a == "labios":
+                    print("Tipos de labios:", labios)
+                    tipo_labios = input("¿Qué tipo de labios quieres elegir? ").strip().lower()
+                    if tipo_labios in labios:
+                        elecciones['labios'] = tipo_labios
+                    else:
+                        print("Tipo de labios no válido.")
+
+                elif a == "ojos":
+                    print("Tipos de ojos:", ojos)
+                    tipo_ojos = input("¿Qué tipo de ojos quieres elegir? ").strip().lower()
+                    if tipo_ojos in ojos:
+                        elecciones['ojos'] = tipo_ojos
+                    else:
+                        print("Tipo de ojos no válido.")
+
+                    print("Colores de ojos:", color_de_ojos)
+                    tipo_color_ojos = input("¿Qué color de ojos quieres elegir? ").strip().lower()
+                    if tipo_color_ojos in color_de_ojos:
+                        elecciones['color de ojos'] = tipo_color_ojos
+                    else:
+                        print("Color de ojos no válido.")
+
+                elif a == "estructura facial":
+                    print("Tipos de estructura facial:", estructura_facial)
+                    tipo_estructura = input("¿Qué tipo de estructura facial quieres elegir? ").strip().lower()
+                    if tipo_estructura in estructura_facial:
+                        elecciones['estructura facial'] = tipo_estructura
+                    else:
+                        print("Tipo de estructura facial no válido.")
+
+                else:
+                    print("Opción no válida. Por favor elige entre nariz, labios, ojos o estructura facial.")
+
+                continuar = input("¿Quieres elegir otra parte de la cara? (si/no): ").strip().lower()
+                if continuar != 'si':
+                    print("Esto escogiste para Valentina:", elecciones)
+                    break  # Salir del bucle si el usuario no quiere continuar
+
+        elif a == "pelo":
+            while True:
+                a = input("¿Qué vas a elegir? (pelo o accesorios): ").strip().lower()
+                if a == "pelo":
+                    print("Tipos de pelo:", pelo)
+                    tipo_pelo = input("¿Qué tipo de pelo quieres elegir? ").strip().lower()
+                    if tipo_pelo in pelo:
+                        elecciones['pelo'] = tipo_pelo
+                    else:
+                        print("Tipo de pelo no válido.")
+
+                    print("Colores de pelo:", color_pelo)
+                    tipo_color_pelo = input("¿Qué color de pelo quieres elegir? ").strip().lower()
+                    if tipo_color_pelo in color_pelo:
+                        elecciones['color de pelo'] = tipo_color_pelo
+                    else:
+                        print("Color de pelo no válido.")
+
+                elif a == "accesorios" or "accesorio":
+                    b = input("¿Quieres diadema o sombreros?: ").strip().lower()
+                    if b == "diadema":
+                        print("Accesorios para la cabeza:", diadema)
+                        tipo_diadema = input("¿Qué tipo de diadema quieres elegir? ").strip().lower()
+                        if tipo_diadema in diadema:
+                            elecciones['accesorio'] = tipo_diadema
+                        else:
+                            print("Tipo de diadema no válido.")
+
+                    elif b == "sombreros" or "sombrero":
+                        print("Accesorios para la cabeza:", sombrero)
+                        tipo_sombrero = input("¿Qué tipo de sombrero quieres elegir? ").strip().lower()
+                        if tipo_sombrero in sombrero:
+                            elecciones['accesorio'] = tipo_sombrero
+                        else:
+                            print("Tipo de sombrero no válido.")
+                    else:
+                        print("Accesorio no válido.")
+                else:
+                    print("Opción no válida. Por favor elige entre pelo o accesorios.")
+
+                continuar = input("¿Quieres elegir otra parte de la cabeza? (si/no): ").strip().lower()
+                if continuar != 'si':
+                    print("Esto escogiste para Valentina:", elecciones)
+                    break
+
+    # Empieza la segunda etapa de la variable d
+
+    elif d == "anatomia":
+        a = input("¿Qué vas a elegir? (parte superior o inferior): ").strip().lower()
+        if a == "parte inferior" or "inferior":
+            while True:
+                c = input("¿Qué vas a elegir? (piel, caderas, piernas, pies, empeine): ").strip().lower()
+
+                if c == "piel":
+                    print("Tipos de piel:", piel)
+                    tipo_piel = input("¿Qué tipo de piel quieres elegir? ").strip().lower()
+                    if tipo_piel in piel:
+                        elecciones['piel'] = tipo_piel
+                    else:
+                        print("Tipo de piel no válido.")
+
+                elif c == "caderas":
+                    print("Tipos de caderas:", caderas)
+                    tipo_caderas = input("¿Qué tipo de caderas quieres elegir? ").strip().lower()
+                    if tipo_caderas in caderas:
+                        elecciones['caderas'] = tipo_caderas
+                    else:
+                        print("Tipo de caderas no válido.")
+
+                elif c == "piernas":
+                    print("Tipos de piernas:", piernas)
+                    tipo_piernas = input("¿Qué tipo de piernas quieres elegir? ").strip().lower()
+                    if tipo_piernas in piernas:
+                        elecciones['piernas'] = tipo_piernas
+                    else:
+                        print("Tipo de piernas no válido.")
+
+                elif c == "pies":
+                    print("Tipos de pies:", pies)
+                    tipo_pies = input("¿Qué tipo de pies quieres elegir? ").strip().lower()
+                    if tipo_pies in pies:
+                        elecciones['pies'] = tipo_pies
+                    else:
+                        print("Tipo de pies no válido.")
+
+                    print("Tipos de empeine:", empeine)
+                    tipo_empeine = input("¿Qué tipo de empeine quieres elegir? ").strip().lower()
+                    if tipo_empeine in empeine:
+                        elecciones['empeine'] = tipo_empeine
+                    else:
+                        print("Tipo de empeine no válido.")
+                else:
+                    print("Opción no válida. Inténtalo de nuevo.")
+
+                continuar = input("¿Quieres elegir otra parte de la parte inferior? (si/no): ").strip().lower()
+                if continuar != 'si':
+                    print("Esto escogiste para Valentina:", elecciones)
+                    break  # Salir del bucle si el usuario no quiere continuar
+
+        elif a == "parte superior" or "superior":
+            while True:
+                a = input("¿Qué vas a elegir? (cuello, hombros, busto, abdomen, cintura, manos): ").strip().lower()
+                if a == "cuello":
+                    print("Tipos de cuello:", cuello)
+                    tipo_cuello = input("¿Qué tipo de cuello quieres elegir? ").strip().lower()
+                    if tipo_cuello in cuello:
+                        elecciones['cuello'] = tipo_cuello
+                    else:
+                        print("Tipo de cuello no válido.")
+                elif a == "hombros":
+                    print("Tipos de hombros:", hombros)
+                    tipo_hombros = input("¿Qué tipo de hombros quieres elegir? ").strip().lower()
+                    if tipo_hombros in hombros:
+                        elecciones['hombros'] = tipo_hombros
+                    else:
+                        print("Tipo de hombros no válido.")
+                elif a == "busto":
+                    print("Tipos de busto:", busto)
+                    tipo_busto = input("¿Qué tipo de busto quieres elegir? ").strip().lower()
+                    if tipo_busto in busto:
+                        elecciones['busto'] = tipo_busto
+                    else:
+                        print("Tipo de busto no válido.")
+
+                elif a == "abdomen":
+                    print("Tipos de abdomen:", abdomen)
+                    tipo_abdomen = input("¿Qué tipo de abdomen quieres elegir? ").strip().lower()
+                    if tipo_abdomen in abdomen:
+                        elecciones['abdomen'] = tipo_abdomen
+                    else:
+                        print("Tipo de abdomen no válido.")
+                elif a == "cintura":
+                    print("Tipos de cintura:", cintura)
+                    tipo_cintura = input("¿Qué tipo de cintura quieres elegir? ").strip().lower()
+                    if tipo_cintura in cintura:
+                        elecciones['cintura'] = tipo_cintura
+                    else:
+                        print("Tipo de cintura no válido.")
+
+                elif a == "manos":
+                    print("Tipos de dedos:", dedos)
+                    tipo_dedos = input("¿Qué tipo de dedos quieres elegir? ").strip().lower()
+                    if tipo_dedos in dedos:
+                        elecciones['dedos'] = tipo_dedos
+                    else:
+                        print("Tipo de dedos no válido.")
+
+                    print("Tipos de uñas:", unas)
+                    tipo_unas = input("¿Qué tipo de uñas quieres elegir? ").strip().lower()
+                    if tipo_unas in unas:
+                        elecciones['forma de uñas'] = tipo_unas
+                    else:
+                        print("Tipo de uñas no válido.")
+
+                    print("Colores de uñas:", color_unas)
+                    tipo_color_unas = input("¿Qué color de uñas quieres elegir? ").strip().lower()
+                    if tipo_color_unas in color_unas:
+                        elecciones['color de uñas'] = tipo_color_unas
+                    else:
+                        print("Color de uñas no válido.")
+                else:
+                    print("Opción no válida. Por favor elige entre cuello, hombros, busto, abdomen, cintura, manos.")
+
+                continuar = input("¿Quieres elegir otra parte de la parte superior? (si/no): ").strip().lower()
+                if continuar != 'si':
+                    print("Esto escogiste para Valentina:", elecciones)
+                    break  # Salir del bucle si el usuario no quiere continuar
+
+    # Empieza la tercera etapa de la variable d
+
+    elif d == "vestimenta":
+        while True:
+            a = input("¿Qué vas a elegir? (parte superior o inferior): ").strip().lower()
+
+            # Parte superior
+            if a == "parte superior" or a == "superior":
+                b = input(
+                    "¿Qué quieres colocarle a Valentina (camiseta, blusa, camisa, suéter, chaleco, top)? ").strip().lower()
+                if b == "camiseta":
+                    print("Tipos de cuello:", tipo_cuello_ropa)
+                    cuello_ropa = input("¿Qué tipo de cuello quieres elegir? ").strip().lower()
+                    if cuello_ropa in tipo_cuello_ropa:
+                        elecciones['tipo de cuello'] = cuello_ropa
+
+                    print("Tipos de manga:", tipo_manga_ropa)
+                    manga_ropa = input("¿Qué tipo de manga quieres elegir? ").strip().lower()
+                    if manga_ropa in tipo_manga_ropa:
+                        elecciones['tipo de manga'] = manga_ropa
+                    else:
+                        print("Algún elemento no es válido.")
+
+                elif b == "blusa":
+                    print("Tipos de cuello:", tipo_cuello_ropa)
+                    cuello_ropa = input("¿Qué tipo de cuello quieres elegir? ").strip().lower()
+                    if cuello_ropa in tipo_cuello_ropa:
+                        elecciones['tipo de cuello'] = cuello_ropa
+
+                    print("Tipos de manga:", tipo_manga_ropa)
+                    manga_ropa = input("¿Qué tipo de manga quieres elegir? ").strip().lower()
+                    if manga_ropa in tipo_manga_ropa:
+                        elecciones['tipo de manga'] = manga_ropa
+
+                    print("Tipos de botones:", tipo_botones)
+                    botones = input("¿Qué tipo de botones quieres elegir? ").strip().lower()
+                    if botones in tipo_botones:
+                        elecciones['botones'] = botones
+                    else:
+                        print("Algún elemento no es válido.")
+
+                elif b == "camisa":
+                    print("Tipos de manga:", tipo_manga_ropa)
+                    manga_ropa = input("¿Qué tipo de manga quieres elegir? ").strip().lower()
+                    if manga_ropa in tipo_manga_ropa:
+                        elecciones['tipo de manga'] = manga_ropa
+                    else:
+                        print("Algún elemento no es válido.")
+
+                elif b == "sueter":
+                    print("Tipos de cuello:", tipo_cuello_ropa)
+                    cuello_ropa = input("¿Qué tipo de cuello quieres elegir? ").strip().lower()
+                    if cuello_ropa in tipo_cuello_ropa:
+                        elecciones['tipo de cuello'] = cuello_ropa
+                    else:
+                        print("Algún elemento no es válido.")
+
+                elif b == "chaleco":
+                    print("Tipos de cuello:", chalecos)
+                    cuello_ropa = input("¿Qué tipo de chaleco quieres elegir? ").strip().lower()
+                    if cuello_ropa in chalecos:
+                        elecciones["chalecos"] = cuello_ropa
+                    else:
+                        print("Algún elemento no es válido.")
+
+                elif b == "top":
+                    print("Tipos de manga:", tipo_manga_ropa)
+                    manga_ropa = input("¿Qué tipo de manga quieres elegir? ").strip().lower()
+                    if manga_ropa in tipo_manga_ropa:
+                        elecciones['tipo de manga'] = manga_ropa
+                    else:
+                        print("Algún elemento no es válido.")
+
+            # Parte inferior
+            elif a == "parte inferior" or a == "inferior":
+                b = input("¿Qué vas a elegir? (pantalón, falda o short): ").strip().lower()
+                if b == "pantalon":
+                    c = input("¿Qué tipo de pantalón (vaqueros, de vestir, deportivos)? ").strip().lower()
+                    if c == "vaqueros":
+                        print("Tipos de basta:", tipo_corte_basta)
+                        basta_pantalon = input("¿Qué tipo de basta quieres elegir? ").strip().lower()
+                        if basta_pantalon in tipo_corte_basta:
+                            elecciones['tipo de basta'] = basta_pantalon
+                        else:
+                            print("Algún elemento no es válido.")
+
+                    elif c == "deportivos":
+                        d = input("¿Qué tipo de deportivos (leggings, corto, yoga)? ").strip().lower()
+                        if d == "leggings":
+                            print("Tipos de leggings:", leggings)
+                            tipo_leggings = input("¿Qué tipo de leggings quieres elegir? ").strip().lower()
+                            if tipo_leggings in leggings:
+                                elecciones['leggings'] = tipo_leggings
+                            else:
+                                print("Algún elemento no es válido.")
+
+                        elif d == "corto":
+                            print("Tipos de short:", dep_corto)
+                            tipo_dep_corto = input("¿Qué tipo de short quieres elegir? ").strip().lower()
+                            if tipo_dep_corto in dep_corto:
+                                elecciones['deportivo corto'] = tipo_dep_corto
+                            else:
+                                print("Algún elemento no es válido.")
+
+                        elif d == "yoga":
+                            print("Tipos de basta:", tipo_corte_basta)
+                            basta_pantalon = input("¿Qué tipo de basta quieres elegir? ").strip().lower()
+                            if basta_pantalon in tipo_corte_basta:
+                                elecciones['tipo de basta'] = basta_pantalon
+                            else:
+                                print("Algún elemento no es válido.")
+
+                elif b == "falda":
+                    print("Tipos de falda:", falda)
+                    tipo_falda = input("¿Qué tipo de falda quieres elegir? ").strip().lower()
+                    if tipo_falda in falda:
+                        elecciones['falda'] = tipo_falda
+                    else:
+                        print("Tipo de falda no válido.")
+
+                elif b == "short":
+                    print("Tipos de short:", short)
+                    tipo_short = input("¿Qué tipo de short quieres elegir? ").strip().lower()
+                    if tipo_short in short:                          elecciones['short'] = tipo_short
+                    else:
+                        print("Tipo de short no válido.")
+
+                    print("Tipos de cintura:", cintura)
+                    tipo_cintura = input("¿Qué tipo de cintura quieres elegir? ").strip().lower()
+                    if tipo_cintura in cintura:
+                        elecciones['cintura'] = tipo_cintura
+                    else:
+                        print("Tipo de cintura no válido.")
+            else:
+                print("Opción no válida. Por favor elige entre pantalón, falda o short.")
+
+                continuar = input("¿Quieres elegir otra parte de la vestimenta? (si/no): ").strip().lower()
+                if continuar != 'si':
+                    print("Esto escogiste para Valentina:", elecciones)
+                    break
+    # si no ingresa (cabeza, anatomía, vestimenta) o 'salir' responde esto
+    else:
+        print("Opción no válida. Intenta de nuevo.")
+

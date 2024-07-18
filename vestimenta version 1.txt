@@ -1,0 +1,123 @@
+print("Hola Bienvenido, ayudame a vestir a Valentina")
+print("Primero cambiaremos su carita\n")
+
+# fase 1 cara
+
+# Listas de la cara
+nariz = ["recta", "aguilieña", "griega", "nubia"]
+labios = ["finos", "pequeños", "carnosos", "forma de corazon"]
+ojos = ["almendrados", "redondos", "rasgados", "hundidos", "saltones", "separados", "juntos", "cacuchon doble"]
+color_de_ojos = ["marron", "avellana", "verde", "azul", "gris", "ambar"]
+estructura_facial = ["ovalada", "redonda", "cuadrada", "triangular", "rectangular", "diamante", "corazon"]
+
+# Diccionario para almacenar las elecciones
+elecciones = {}
+
+# Lógica de selección
+while True:
+    a = input("Qué vas a elegir? (nariz, labios, estructura facial, ojos): ").strip().lower()
+
+    if a == "nariz":
+        print("Tipos de nariz:", nariz)
+        tipo_nariz = input("Qué tipo de nariz quieres elegir? ").strip().lower()
+        if tipo_nariz in nariz:
+            elecciones['nariz'] = tipo_nariz
+        else:
+            print("Tipo de nariz no válido.")
+
+    elif a == "labios":
+        print("Tipos de labios:", labios)
+        tipo_labios = input("Qué tipo de labios quieres elegir? ").strip().lower()
+        if tipo_labios in labios:
+            elecciones['labios'] = tipo_labios
+        else:
+            print("Tipo de labios no válido.")
+
+    elif a == "ojos":
+        print("Tipos de ojos:", ojos)
+        tipo_ojos = input("Qué tipo de ojos quieres elegir? ").strip().lower()
+        if tipo_ojos in ojos:
+            elecciones['ojos'] = tipo_ojos
+        else:
+            print("Tipo de ojos no válido.")
+
+        print("Colores de ojos:", color_de_ojos)
+        tipo_color_ojos = input("Qué color de ojos quieres elegir? ").strip().lower()
+        if tipo_color_ojos in color_de_ojos:
+            elecciones['color de ojos'] = tipo_color_ojos
+        else:
+            print("Color de ojos no válido.")
+
+    elif a == "estructura facial":
+        print("Tipos de estructura facial:", estructura_facial)
+        tipo_estructura = input("Qué tipo de estructura facial quieres elegir? ").strip().lower()
+        if tipo_estructura in estructura_facial:
+            elecciones['estructura facial'] = tipo_estructura
+        else:
+            print("Tipo de estructura facial no válido.")
+
+    else:
+        print("Opción no válida, Por favor elige entre nariz, labios, ojos o estructura facial.")
+
+    # Preguntar si quiere continuar
+    continuar = input("Quieres elegir otra parte de la cara? (si/no): ").strip().lower()
+    if continuar != 'si':
+        break  
+
+# Mostrar las elecciones
+print("Esto escogiste para la cara de Valentina:", elecciones)
+
+# fase 2 cabeza
+
+# lista del pelo
+pelo = ["corto", "ondulado", "largo", "calva", "liso", "crespo"]
+color_pelo = ["marron oscuro", "marron claro", "rubio platinado", "rubio claro", "rojo oscuro", "rojo medio"]
+diadema = ["tiaras", "pinzas", "clips", "horquillas", "bandas deportivas"]
+sombrero = ["gorra", "sombrero de paja"]
+
+# Lógica de selección
+elecciones = {}  
+
+while True:
+    a = input("Qué vas a elegir? (pelo o accesorios): ").strip().lower()
+    if a == "pelo":
+        print("Tipos de pelo:", pelo)
+        tipo_pelo = input("Qué tipo de pelo quieres elegir? ").strip().lower()
+        if tipo_pelo in pelo:
+            elecciones['pelo'] = tipo_pelo
+        else:
+            print("Tipo de pelo no válido.")
+
+        print("Colores de pelo:", color_pelo)
+        tipo_color_pelo = input("Qué color de pelo quieres elegir? ").strip().lower()
+        if tipo_color_pelo in color_pelo:
+            elecciones['color_pelo'] = tipo_color_pelo
+        else:
+            print("Color de pelo no válido.")
+
+    elif a == "accesorios":
+        b = input("Quieres diadema o sombreros?: ").strip().lower()
+        if b == "diadema":
+            print("Accesorios para la cabeza:", diadema)
+            tipo_diadema = input("Qué tipo de diadema quieres elegir? ").strip().lower()
+            if tipo_diadema in diadema:
+                elecciones['accesorio'] = tipo_diadema
+            else:
+                print("Tipo de diadema no válido.")
+
+        elif b == "sombreros":
+            print("Accesorios para la cabeza:", sombrero)
+            tipo_sombrero = input("Qué tipo de sombrero quieres elegir? ").strip().lower()
+            if tipo_sombrero in sombrero:
+                elecciones['accesorio'] = tipo_sombrero
+            else:
+                print("Tipo de sombrero no válido.")
+        else:
+            print("Accesorio no válido.")
+    else:
+        print("Opción no válida, Por favor elige entre pelo o accesorio.")
+    # Preguntar si quiere continuar
+    continuar = input("Quieres elegir otra parte de la cabeza? (si/no): ").strip().lower()
+    if continuar != 'si':
+        break  # Salir del bucle si el usuario no quiere continuar
+print("Esto escogiste para la cabeza de Valentina:", elecciones)

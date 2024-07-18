@@ -1,0 +1,642 @@
+using System;
+using System.Collections.Generic;
+class Program 
+{
+  static void Main() 
+  {
+    Console.WriteLine("Hola, usuario. Bienvenido. Ayúdame a vestir a Valentina\n");
+    //Listas de la cara
+    List<string> nariz = new List<string> {"recta", "aguilena", "griega", "nubia"};
+    List<string> labios = new List<string> {"finos", "pequeños", "carnosos", "forma de corazon"};
+    List<string> ojos = new List<string> {"almendrados", "redondos", "rasgados", "hundidos", "saltones", "separados", "juntos", "cacuchon doble"};
+    List<string> color_de_ojos = new List<string> {"marron", "avellana", "verde", "azul", "gris", "ambar"};
+    List<string> estructura_facial = new List<string> {"ovalada", "redonda", "cuadrada", "triangular", "rectangular", "diamante", "corazon"};
+    
+    //Lista del pelo
+    List<string> pelo = new List<string> {"corto", "ondulado", "largo", "liso", "crespo"};
+    List<string> color_pelo = new List<string> {"marron oscuro", "marron claro", "rubio platinado", "rubio claro", "rojo oscuro", "rojo medio"};
+    List<string> diadema = new List<string> {"tiaras", "pinzas", "clips", "horquillas", "bandas deportivas"};
+    List<string> sombrero = new List<string> {"gorra", "sombrero de paja"};
+    
+    //Listas de la parte inferior
+    List<string> piel = new List<string> {"blanca", "morena", "trigueña", "morena clara"};
+    List<string> caderas = new List<string> {"estrechas", "anchas", "atleticas"};
+    List<string> piernas = new List<string> {"arqueadas", "musculosas", "delgadas", "rectas", "cortas", "largas"};
+    List<string> pies = new List<string> {"egipcio", "romano", "grande", "pequeño"};
+    List<string> empeine = new List<string> {"ancho", "delgado"};
+    
+    // Listas de la parte superior
+    List<string> cuello = new List<string> {"largo", "corto"};
+    List<string> hombros = new List<string> {"anchos", "cortos"};
+    List<string> busto = new List<string> {"grande", "pequeño", "mediano"};
+    List<string> abdomen = new List<string> {"plano", "abultado", "definido"};
+    List<string> cintura = new List<string> {"definida", "estrecha", "ancha", "recta"};
+    
+    // Listas de las manos
+    List<string> dedos  = new List<string> {"largos y finos", "cortos y robustos", "dedos curvos"};
+    List<string> unas  = new List<string> {"pintiagudas", "ovaldas", "cuadradas", "redondas"};
+    List<string> color_unas  = new List<string> {"rojo", "rosa", "nude", "azul", "blanco", "gris", "sin esmalte"};
+    
+    //Listas de ropa parte superior
+    List<string> tipo_cuello_ropa = new List<string> {"tortuga", "redondo", "en v"};
+    List<string> tipo_manga_ropa = new List<string> {"corta", "larga", "hombros descubiertos", "sin mangas"};
+    List<string> chalecos = new List<string> {"punto", "acolchados", "piel sintetica"};
+    List<string> tipo_botones = new List<string> {"presion", "cosidos", "cierre"};
+    
+    //Listas de ropa parte inferior
+    List<string> tipo_corte_basta = new List<string> {"ajustados", "rectos", "acampanados", "anchos"};
+    List<string> cintura_ropa = new List<string> {"baja", "alta"};
+    List<string> falda = new List<string> {"lapiz", "plisadas", "acampanadas"};
+    List<string> shorts = new List<string> {"vaqueros", "tela", "mezclilla"};
+    List<string> leggings = new List<string> {"basicos", "estampados", "cuero sintetico", "presion"};
+    List<string> dep_corto = new List<string> {"compresion", "tela", "running"};
+    
+    Dictionary<string, string> elecciones = new Dictionary<string, string>();
+    
+    while(true){
+        Console.WriteLine("¿Qué vas a elegir? (cabeza, anatomía, vestimenta) o 'salir' para terminar: ");
+        string d = Console.ReadLine();
+        
+        if (d == "salir")
+        {
+            Console.WriteLine($"Gracias por ayudarme con Valentina. Esto escogiste para Valentina: {elecciones}");
+            break;
+        }
+        
+        if (d == "cabeza")
+        {
+            Console.WriteLine("¿Qué vas a elegir? (cara o pelo): ");
+            string a = Console.ReadLine();
+            if(a == "cara")
+            {
+                while(true)
+                {
+                    Console.WriteLine("¿Qué vas a elegir? (nariz, labios, estructura facial, ojos): ");
+                    string a1 = Console.ReadLine();
+                    if(a1 == "nariz")
+                    {
+                        Console.WriteLine($"Tipos de nariz: {string.Join(", ", nariz)}");
+                        Console.WriteLine("¿Qué tipo de nariz quieres elegir? ");
+                        string tipo_nariz = Console.ReadLine();
+                        if (nariz.Contains(tipo_nariz))
+                        {
+                            elecciones["nariz"] = tipo_nariz;
+                            foreach (var kvp in elecciones)
+                                {
+                                    Console.WriteLine($"Clave: {kvp.Key}, Valor: {kvp.Value}");
+                                }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Tipo de nariz no válido.");
+                        }
+                    }
+                    else if(a1 == "labios")
+                    {
+                        Console.WriteLine($"Tipos de labios: {string.Join(", ", labios)}");
+                        Console.WriteLine("¿Qué tipo de labios quieres elegir? ");
+                        string tipo_labios = Console.ReadLine();
+                        if (labios.Contains(tipo_labios))
+                        {
+                            elecciones["labios"] = tipo_labios;
+                            foreach (var kvp in elecciones)
+                                {
+                                    Console.WriteLine($"Clave: {kvp.Key}, Valor: {kvp.Value}");
+                                }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Tipo de labios no válido.");
+                        }
+                    }
+                    else if(a1 == "ojos")
+                    {
+                        Console.WriteLine($"Tipos de ojos: {string.Join(", ", ojos)}");
+                        Console.WriteLine("¿Qué tipo de ojos quieres elegir? ");
+                        string tipo_ojos = Console.ReadLine();
+                        if (ojos.Contains(tipo_ojos))
+                        {
+                            elecciones["ojos"] = tipo_ojos;
+                            foreach (var kvp in elecciones)
+                                {
+                                    Console.WriteLine($"Clave: {kvp.Key}, Valor: {kvp.Value}");
+                                }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Tipo de ojos no válido.");
+                        }
+                        
+                    }
+                    else if(a1 == "estructura facial")
+                    {
+                        Console.WriteLine($"Tipos de estructura facial: {string.Join(", ", estructura_facial)}");
+                        Console.WriteLine("¿Qué tipo de estructura facial quieres elegir? ");
+                        string tipo_estructura_facial = Console.ReadLine();
+                        if (estructura_facial.Contains(tipo_estructura_facial))
+                        {
+                            elecciones["estructura facial"] = tipo_estructura_facial;
+                            foreach (var kvp in elecciones)
+                                {
+                                    Console.WriteLine($"Clave: {kvp.Key}, Valor: {kvp.Value}");
+                                }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Tipo de estructura facial no válido.");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Opción no válida. Por favor elige entre nariz, labios, ojos o estructura facial.");
+                    }
+                    Console.WriteLine("¿Quieres elegir otra parte de la cara? (si/no): ");
+                    string continuar = Console.ReadLine();
+                    if(continuar != "si")
+                    {
+                        Console.WriteLine("Esto escogiste para Valentina: ");
+                        foreach (var kvp in elecciones)
+                                {
+                                    Console.WriteLine($"Clave: {kvp.Key}, Valor: {kvp.Value}");
+                                }
+                        break;
+                    }
+                }
+            }
+            
+            else if(a == "pelo")
+            {
+                while(true)
+                {
+                    Console.WriteLine("¿Qué vas a elegir? (pelo o accesorios): ");
+                    string a1 = Console.ReadLine();
+                    if(a1 == "pelo")
+                    {
+                        Console.WriteLine($"Tipos de pelo: {string.Join(", ", pelo)}");
+                        Console.WriteLine("¿Qué tipo de peloz quieres elegir? ");
+                        string tipo_pelo = Console.ReadLine();
+                        if (pelo.Contains(tipo_pelo))
+                        {
+                            elecciones["pelo"] = tipo_pelo;
+                            foreach (var kvp in elecciones)
+                                {
+                                    Console.WriteLine($"Clave: {kvp.Key}, Valor: {kvp.Value}");
+                                }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Tipo de pelo no válido.");
+                        }
+                    }
+                    else if(a1 == "accesorio")
+                    {
+                        Console.WriteLine($"Tipos de diadema: {string.Join(", ", diadema)}");
+                        Console.WriteLine("¿Qué tipo de diadema quieres elegir? ");
+                        string tipo_diadema = Console.ReadLine();
+                        if (diadema.Contains(tipo_diadema))
+                        {
+                            elecciones["diadema"] = tipo_diadema;
+                            foreach (var kvp in elecciones)
+                                {
+                                    Console.WriteLine($"Clave: {kvp.Key}, Valor: {kvp.Value}");
+                                }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Tipo de diadema no válido.");
+                        }
+                    }
+                    
+                    Console.WriteLine("¿Quieres elegir otra parte de la cara? (si/no): ");
+                    string continuar = Console.ReadLine();
+                    if(continuar != "si")
+                    {
+                        Console.WriteLine("Esto escogiste para Valentina: ");
+                        foreach (var kvp in elecciones)
+                                {
+                                    Console.WriteLine($"Clave: {kvp.Key}, Valor: {kvp.Value}");
+                                }
+                        break;
+                    }
+                }    
+            }
+        }
+        else if(d == "anatomia")
+        {
+            Console.WriteLine("¿Qué vas a elegir? (parte superior o parte inferior): ");
+            string a = Console.ReadLine();
+            if(a == "inferior")
+            {
+                while(true)
+                {
+                    Console.WriteLine("¿Qué vas a elegir? (piel, caderas, piernas, pies, empeine): ");
+                    string c = Console.ReadLine();
+                    if(c == "piel")
+                    {
+                        Console.WriteLine($"Tipos de piel: {string.Join(", ", piel)}");
+                        Console.WriteLine("¿Qué tipo de piel quieres elegir? ");
+                        string tipo_piel = Console.ReadLine();
+                        if (piel.Contains(tipo_piel))
+                        {
+                            elecciones["piel"] = tipo_piel;
+                            foreach (var kvp in elecciones)
+                                {
+                                    Console.WriteLine($"Clave: {kvp.Key}, Valor: {kvp.Value}");
+                                }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Tipo de piel no válido.");
+                        }
+                    }
+                    else if(c == "caderas")
+                    {
+                        Console.WriteLine($"Tipos de caderas: {string.Join(", ", caderas)}");
+                        Console.WriteLine("¿Qué tipo de caderas quieres elegir? ");
+                        string tipo_caderas = Console.ReadLine();
+                        if (caderas.Contains(tipo_caderas))
+                        {
+                            elecciones["caderas"] = tipo_caderas;
+                            foreach (var kvp in elecciones)
+                                {
+                                    Console.WriteLine($"Clave: {kvp.Key}, Valor: {kvp.Value}");
+                                }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Tipo de caderas no válido.");
+                        }
+                    }
+                    else if(c == "piernas")
+                    {
+                        Console.WriteLine($"Tipos de piernas: {string.Join(", ", piernas)}");
+                        Console.WriteLine("¿Qué tipo de piernas quieres elegir? ");
+                        string tipo_piernas = Console.ReadLine();
+                        if (piernas.Contains(tipo_piernas))
+                        {
+                            elecciones["piernas"] = tipo_piernas;
+                            foreach (var kvp in elecciones)
+                                {
+                                    Console.WriteLine($"Clave: {kvp.Key}, Valor: {kvp.Value}");
+                                }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Tipo de piernas no válido.");
+                        }
+                    }
+                    else if(c == "pies")
+                    {
+                        Console.WriteLine($"Tipos de pies: {string.Join(", ", pies)}");
+                        Console.WriteLine("¿Qué tipo de pies quieres elegir? ");
+                        string tipo_pies = Console.ReadLine();
+                        if (pies.Contains(tipo_pies))
+                        {
+                            elecciones["pies"] = tipo_pies;
+                            foreach (var kvp in elecciones)
+                                {
+                                    Console.WriteLine($"Clave: {kvp.Key}, Valor: {kvp.Value}");
+                                }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Tipo de pies no válido.");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Opción no válida. Inténtalo de nuevo.");
+                    }
+                    Console.WriteLine("¿Quieres elegir otra parte de la cara? (si/no): ");
+                    string continuar = Console.ReadLine();
+                    if(continuar != "si")
+                    {
+                        Console.WriteLine("Esto escogiste para Valentina: ");
+                        foreach (var kvp in elecciones)
+                                {
+                                    Console.WriteLine($"Clave: {kvp.Key}, Valor: {kvp.Value}");
+                                }
+                        break;
+                    }
+                }
+            }
+            else if(a == "superior")
+            {
+                while(true)
+                {
+                    Console.WriteLine("¿Qué vas a elegir? (cuello, hombros, busto, abdomen, cintura, manos): ");
+                    string a1 = Console.ReadLine();
+                    if(a1 == "cuello")
+                    {
+                        Console.WriteLine($"Tipos de cuello: {string.Join(", ", cuello)}");
+                        Console.WriteLine("¿Qué tipo de cuello quieres elegir? ");
+                        string tipo_cuello = Console.ReadLine();
+                        if (cuello.Contains(tipo_cuello))
+                        {
+                            elecciones["cuello"] = tipo_cuello;
+                            foreach (var kvp in elecciones)
+                                {
+                                    Console.WriteLine($"Clave: {kvp.Key}, Valor: {kvp.Value}");
+                                }
+                        }
+                        else
+                        {
+                             Console.WriteLine("Tipo de cuello no válido.");
+                        }  
+                    }
+                    else if(a1 == "hombros")
+                    {
+                        Console.WriteLine($"Tipos de hombros: {string.Join(", ", hombros)}");
+                        Console.WriteLine("¿Qué tipo de hombros quieres elegir? ");
+                        string tipo_hombros = Console.ReadLine();
+                        if (hombros.Contains(tipo_hombros))
+                        {
+                            elecciones["hombros"] = tipo_hombros;
+                            foreach (var kvp in elecciones)
+                                {
+                                    Console.WriteLine($"Clave: {kvp.Key}, Valor: {kvp.Value}");
+                                }
+                        }
+                        else
+                        {
+                             Console.WriteLine("Tipo de hombros no válido.");
+                        }  
+                    }
+                    else if(a1 == "busto")
+                    {
+                        Console.WriteLine($"Tipos de busto: {string.Join(", ", busto)}");
+                        Console.WriteLine("¿Qué tipo de busto quieres elegir? ");
+                        string tipo_busto = Console.ReadLine();
+                        if (busto.Contains(tipo_busto))
+                        {
+                            elecciones["busto"] = tipo_busto;
+                            foreach (var kvp in elecciones)
+                                {
+                                    Console.WriteLine($"Clave: {kvp.Key}, Valor: {kvp.Value}");
+                                }
+                        }
+                        else
+                        {
+                             Console.WriteLine("Tipo de busto no válido.");
+                        }  
+                    }
+                    else if(a1 == "abdomen")
+                    {
+                        Console.WriteLine($"Tipos de abdomen: {string.Join(", ", abdomen)}");
+                        Console.WriteLine("¿Qué tipo de abdomen quieres elegir? ");
+                        string tipo_abdomen = Console.ReadLine();
+                        if (abdomen.Contains(tipo_abdomen))
+                        {
+                            elecciones["abdomen"] = tipo_abdomen;
+                            foreach (var kvp in elecciones)
+                                {
+                                    Console.WriteLine($"Clave: {kvp.Key}, Valor: {kvp.Value}");
+                                }
+                        }
+                        else
+                        {
+                             Console.WriteLine("Tipo de abdomen no válido.");
+                        }  
+                    }
+                    else if(a1 == "cintura")
+                    {
+                        Console.WriteLine($"Tipos de cintura: {string.Join(", ", cintura)}");
+                        Console.WriteLine("¿Qué tipo de cintura quieres elegir? ");
+                        string tipo_cintura = Console.ReadLine();
+                        if (cintura.Contains(tipo_cintura))
+                        {
+                            elecciones["cintura"] = tipo_cintura;
+                            foreach (var kvp in elecciones)
+                                {
+                                    Console.WriteLine($"Clave: {kvp.Key}, Valor: {kvp.Value}");
+                                }
+                        }
+                        else
+                        {
+                             Console.WriteLine("Tipo de cintura no válido.");
+                        }  
+                    }
+                    else if(a1 == "manos")
+                    {
+                        Console.WriteLine($"Tipos de dedos: {string.Join(", ", dedos)}");
+                        Console.WriteLine("¿Qué tipo de dedos quieres elegir? ");
+                        string tipo_dedos = Console.ReadLine();
+                        if (dedos.Contains(tipo_dedos))
+                        {
+                            elecciones["dedos"] = tipo_dedos;
+                            foreach (var kvp in elecciones)
+                                {
+                                    Console.WriteLine($"Clave: {kvp.Key}, Valor: {kvp.Value}");
+                                }
+                        }
+                        else
+                        {
+                             Console.WriteLine("Tipo de dedos no válido.");
+                        }  
+                    }
+                    else
+                    {
+                        Console.WriteLine("Opción no válida. Por favor elige entre cuello, hombros, busto, abdomen, cintura, manos.");
+                    }
+                    Console.WriteLine("¿Quieres elegir otra parte de la cara? (si/no): ");
+                    string continuar = Console.ReadLine();
+                    if(continuar != "si")
+                    {
+                        Console.WriteLine("Esto escogiste para Valentina: ");
+                        foreach (var kvp in elecciones)
+                                {
+                                    Console.WriteLine($"Clave: {kvp.Key}, Valor: {kvp.Value}");
+                                }
+                        break;
+                    }
+                }
+            }
+            
+        }
+        else if(d == "vestimenta")
+        {
+            while(true)
+            {
+                Console.WriteLine("¿Qué vas a elegir? (parte superior o inferior): ");
+                string a = Console.ReadLine();
+                if(a == "superior")
+                {
+                    Console.WriteLine("¿Qué quieres colocarle a Valentina (camiseta, blusa, camisa, suéter, chaleco, top)? ");
+                    string b = Console.ReadLine();
+                    if(b == "camiseta")
+                    {
+                        Console.WriteLine($"Tipos de cuello: {string.Join(", ", cuello)}");
+                        Console.WriteLine("¿Qué tipo de cuello quieres elegir? ");
+                        string tipo_cuello = Console.ReadLine();
+                        if (cuello.Contains(tipo_cuello))
+                        {
+                            elecciones["cuello"] = tipo_cuello;
+                            foreach (var kvp in elecciones)
+                                {
+                                    Console.WriteLine($"Clave: {kvp.Key}, Valor: {kvp.Value}");
+                                }
+                        }
+                        else
+                        {
+                             Console.WriteLine("Tipo de cuello no válido.");
+                        }  
+                    }
+                    else if(b == "blusa")
+                    {
+                       Console.WriteLine($"Tipos de tipo_cuello_ropa: {string.Join(", ", tipo_cuello_ropa)}");
+                        Console.WriteLine("¿Qué tipo de blusa quieres elegir? ");
+                        string cuello_ropa = Console.ReadLine();
+                        if (tipo_cuello_ropa.Contains(cuello_ropa))
+                        {
+                            elecciones["tipo_cuello_ropa"] = cuello_ropa;
+                            foreach (var kvp in elecciones)
+                                {
+                                    Console.WriteLine($"Clave: {kvp.Key}, Valor: {kvp.Value}");
+                                }
+                        }
+                        else
+                        {
+                             Console.WriteLine("Tipo de blusa no válido.");
+                        }   
+                    }
+                    else if(b == "camisa")
+                    {
+                       Console.WriteLine($"Tipos de tipo_manga_ropa: {string.Join(", ", tipo_manga_ropa)}");
+                        Console.WriteLine("¿Qué tipo de camisa quieres elegir? ");
+                        string manga_ropa = Console.ReadLine();
+                        if (tipo_manga_ropa.Contains(manga_ropa))
+                        {
+                            elecciones["tipo_manga_ropa"] = manga_ropa;
+                            foreach (var kvp in elecciones)
+                                {
+                                    Console.WriteLine($"Clave: {kvp.Key}, Valor: {kvp.Value}");
+                                }
+                        }
+                        else
+                        {
+                             Console.WriteLine("Tipo de camisa no válido.");
+                        }   
+                    }
+                    else if(b == "chaleco")
+                    {
+                        Console.WriteLine($"Tipos de chalecos: {string.Join(", ", chalecos)}");
+                        Console.WriteLine("¿Qué tipo de chaleco quieres elegir? ");
+                        string cuello_ropa = Console.ReadLine();
+                        if (chalecos.Contains(cuello_ropa))
+                        {
+                            elecciones["chalecos"] = cuello_ropa;
+                            foreach (var kvp in elecciones)
+                                {
+                                    Console.WriteLine($"Clave: {kvp.Key}, Valor: {kvp.Value}");
+                                }
+                        }
+                        else
+                        {
+                             Console.WriteLine("Tipo de chaleco no válido.");
+                        }   
+                    }
+                    else if(b == "top")
+                    {
+                       Console.WriteLine($"Tipos de tipo_manga_ropa: {string.Join(", ", tipo_manga_ropa)}");
+                        Console.WriteLine("¿Qué tipo de chaleco quieres elegir? ");
+                        string  manga_ropa = Console.ReadLine();
+                        if (tipo_manga_ropa.Contains(manga_ropa))
+                        {
+                            elecciones["tipo_manga_ropa"] = manga_ropa;
+                            foreach (var kvp in elecciones)
+                                {
+                                    Console.WriteLine($"Clave: {kvp.Key}, Valor: {kvp.Value}");
+                                }
+                        }
+                        else
+                        {
+                             Console.WriteLine("Tipo de top no válido.");
+                        }   
+                    }
+                }
+                else if(a == "inferior")
+                {
+                    Console.WriteLine("¿Qué vas a elegir? (pantalón, falda o short): ");
+                    string b = Console.ReadLine();
+                    if(b == "pantalon")
+                    {
+                        Console.WriteLine($"Tipos de vaqueros: {string.Join(", ", tipo_corte_basta)}");
+                        Console.WriteLine("¿Qué tipo de vaqueros quieres elegir? ");
+                        string basta_pantalon = Console.ReadLine();
+                        if (tipo_corte_basta.Contains(basta_pantalon))
+                        {
+                            elecciones["tipo_corte_basta"] = basta_pantalon;
+                            foreach (var kvp in elecciones)
+                                {
+                                    Console.WriteLine($"Clave: {kvp.Key}, Valor: {kvp.Value}");
+                                }
+                        }
+                        else
+                        {
+                             Console.WriteLine("Tipo de vaquero no válido.");
+                        }  
+                    }
+                    else if(b == "falda")
+                    {
+                        Console.WriteLine($"Tipos de falda: {string.Join(", ", falda)}");
+                        Console.WriteLine("¿Qué tipo de vaqueros quieres elegir? ");
+                        string tipo_falda = Console.ReadLine();
+                        if (falda.Contains(tipo_falda))
+                        {
+                            elecciones["falda"] = tipo_falda;
+                            foreach (var kvp in elecciones)
+                                {
+                                    Console.WriteLine($"Clave: {kvp.Key}, Valor: {kvp.Value}");
+                                }
+                        }
+                        else
+                        {
+                             Console.WriteLine("Tipo de falda no válido.");
+                        }
+                    }
+                    else if(b == "short")
+                    {
+                        Console.WriteLine($"Tipos de shorts: {string.Join(", ", shorts)}");
+                        Console.WriteLine("¿Qué tipo de shorts quieres elegir? ");
+                        string tipo_short = Console.ReadLine();
+                        if (shorts.Contains(tipo_short))
+                        {
+                            elecciones["shorts"] = tipo_short;
+                            foreach (var kvp in elecciones)
+                                {
+                                    Console.WriteLine($"Clave: {kvp.Key}, Valor: {kvp.Value}");
+                                }
+                        }
+                        else
+                        {
+                             Console.WriteLine("Tipo de short no válido.");
+                        }
+                    }
+                }
+                else
+                    {
+                        Console.WriteLine("Opción no válida. Por favor elige entre cuello, hombros, busto, abdomen, cintura, manos.");
+                    }
+                Console.WriteLine("¿Quieres elegir otra parte de la cara? (si/no): ");
+                string continuar = Console.ReadLine();
+                if(continuar != "si")
+                {
+                    Console.WriteLine("Esto escogiste para Valentina: ");
+                    foreach (var kvp in elecciones)
+                            {
+                                Console.WriteLine($"Clave: {kvp.Key}, Valor: {kvp.Value}");
+                            }
+                    break;
+                }
+                
+            }
+        }
+        else
+        {
+            Console.WriteLine("Opción no válida. Intenta de nuevo.");
+        }
+        
+    }
+     
+  } 
+}
